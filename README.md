@@ -61,3 +61,26 @@ Get-FileHash lampy-public.tar.part-* -Algorithm SHA256
   at any scale, but you may not offer TimescaleDB itself as a hosted
   database service. See `FEES.md` in lampy-single for the commercial
   breakdown (spoiler: license fees are $0 across the stack).
+
+## System architecture
+
+Text-based SAD documentation (Mermaid) for the whole ecosystem, kept current
+as features are added:
+
+- [System-wide context diagram and database documentation](docs/system.md) —
+  all 12 repositories as subsystems, external entities, data flows between
+  them, the data-store inventory, and cross-system entity relationships.
+- Per-repo docs, each with a context diagram, a level-1 data flow diagram,
+  and an entity–relationship diagram:
+  - [Bible](https://github.com/cosbykit-afk/Bible/blob/main/docs/architecture.md)
+  - [R-Theory](https://github.com/cosbykit-afk/R-Theory/blob/main/docs/architecture.md)
+  - [bible-project](https://github.com/cosbykit-afk/bible-project/blob/main/docs/architecture.md)
+  - [euclid-proofs](https://github.com/cosbykit-afk/euclid-proofs/blob/main/docs/architecture.md)
+  - [genealogy](https://github.com/cosbykit-afk/genealogy/blob/main/docs/architecture.md)
+  - [gwen-training](https://github.com/cosbykit-afk/gwen-training/blob/main/docs/architecture.md)
+  - [lampy-admin](https://github.com/cosbykit-afk/lampy-admin/blob/main/docs/architecture.md)
+  - [lampy-deps](https://github.com/cosbykit-afk/lampy-deps/blob/main/docs/architecture.md)
+  - [lampy-installer](https://github.com/cosbykit-afk/lampy-installer/blob/main/docs/architecture.md)
+  - [lampy-single](https://github.com/cosbykit-afk/lampy-single/blob/main/docs/architecture.md)
+  - [lampy-temp-backup](https://github.com/cosbykit-afk/lampy-temp-backup/blob/main/docs/architecture.md)
+  - [r-theory-rewrite](https://github.com/cosbykit-afk/r-theory-rewrite/blob/main/docs/architecture.md)
