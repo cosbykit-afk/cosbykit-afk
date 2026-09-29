@@ -67,7 +67,7 @@ flowchart TB
     GH -->|"release chunks"| installer
     installer -->|"WSL distro and boot task"| admin
     single -->|"container image"| DH
-    deps -.->|"wheelhouse and ollama-donor - intended"| single
+    deps -->|"wheelhouse and ollama-donor release assets"| single
     OLL -.->|"model distribution mirror - intended"| deps
     tempbackup -.->|"snapshot of forum-stack tree"| admin
 
@@ -103,6 +103,7 @@ flowchart TB
 | Document tree | r-theory-rewrite | books, sections, figures, claims | Static site source; structure modeled, no database |
 | Research mirror files | R-Theory | 3 HTML pages, 6 CSV/JSON tables | Backup mirror of r-theory-rewrite research pages |
 | Build context | lampy-single | Dockerfile, supervisord conf, forum source | Produces container image; no runtime data |
+| Dependency release assets | lampy-deps | build-deps-v1 release: 7 assets (~7.8 GiB) | wheelhouse.tar.part00-02 + ollama-donor.tar.part00-03; git tree holds only README + docs |
 | Code snapshot | lampy-temp-backup | 134-entry working tree plus tarball | Static backup, verified 2026-09-21 |
 | Curriculum docs | gwen-training | lesson plan, lessons, prompts | No persistent data model |
 | CEG model files | qa-ceg | ceg/*.ceg graphs: inputs, effects, requirements | One graph per product: r-theory-rewrite, forum, lampy-installer, bible-project, profile |
@@ -299,9 +300,13 @@ Cross-database links (by design, not by foreign key):
   distro that lampy-admin runs inside; admin pulls r-theory-rewrite site-dist;
   R-Theory is a declared backup mirror of r-theory-rewrite research pages;
   bible is declared superseded by bible-project.
-- INFERRED: the lampy-deps -> lampy-single supply flow and the Ollama
-  distribution -> lampy-deps mirror flow are the README's stated intent; no
-  files have ever been committed to lampy-deps, so both are drawn dotted.
+- OBSERVED (2026-09-28): lampy-deps now carries the `build-deps-v1` release
+  (7 assets, ~7.8 GiB: wheelhouse.tar.part00-02 + ollama-donor.tar.part00-03,
+  created 2026-09-27) that supplies the lampy-single build — the
+  deps→single flow is drawn solid. The Ollama distribution→deps mirror flow
+  remains INFERRED (wheels/binaries reached the release via staging scripts,
+  not a direct upstream transfer); no files are committed to the lampy-deps
+  git tree itself (README + docs only).
 - INFERRED: the tempbackup -> admin restore direction. The repo is a verified
   snapshot of the forum-stack tree; no restore procedure was observed.
 - INFERRED: exact table and key names in the systemwide ERD are representative,
