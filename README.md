@@ -54,6 +54,8 @@ Get-FileHash lampy-public.tar.part-* -Algorithm SHA256
 
 ## License notes
 
+- [Terms of Use](https://www.facebook.com/permalink.php?story_fbid=pfbid0EYdC7t3nnkshMjssisYwyix5p8JLyD3Ns7EvEkRP4ugNtB8z8dKcrBwdJKSqLKaPl&id=61594635330402)
+
 - This account's original code is public domain ([The Unlicense](https://unlicense.org)).
 - The stack bundles third-party components under their own licenses;
   see `COMPONENT_LICENSES.md` in lampy-single.
